@@ -1,0 +1,125 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: rgb(120, 136, 172);
+    margin: 0;
+    padding: 30px;
+}
+
+.alerts {
+    display: flex;
+    align-self: center;
+}
+
+.currently {
+    align-self: center;
+    background-color: #FF5733;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 50%;
+}
+
+.weekly {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.weekly b {
+    font-size: 1.5em;
+    align-self: center;
+}
+
+#no-weather em {
+    color: #4c5b5f;
+    text-align: center;
+}
+
+#day-list {
+    display: flex;
+    overflow-x: auto;
+    justify-content: flex-start;
+}
+
+#hr-list {
+    display: flex;
+    justify-content: flex-start;
+    list-style: none;
+    overflow-x: auto;
+}
+
+.day {
+    margin: 10px;
+    color: black;
+    border: 2px solid black;
+    border-radius: 6px;
+    background-color: snow;
+    text-align: center;
+}
+
+.day>h3 {
+    margin: 10px;
+    color: #582bac;
+    border-radius: 6px;
+    align-self: centre;
+    border-style: groove;
+}
+
+.hour {
+    margin: 10px;
+    color: black;
+    border: 2px dashed black;
+    border-radius: 6px;
+    background-color: rgb(152, 134, 233);
+    text-align: center;
+    padding-right: 20px;
+    padding-left: 20px
+}
+
+.hour>h3 {
+    margin: 10px;
+    color: #46241c;
+    border-radius: 6px;
+    text-align: center;
+}
+
+
+/* 
+em {
+    text-align: center;
+} */
+
+.hourly {
+    text-align: center;
+}
+
+.hourly>em {
+    text-align: center;
+}
+
+.hot-alert {
+    color: red;
+    margin: 10px;
+}
+
+.cold-alert {
+    color: blue;
+    margin: 10px;
+}
+
+.btn-grp {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.btn-grp button {
+    border: 2px dashed black;
+    margin-left: 5px;
+}
+
+.header-title {
+    font-size: 2em;
+    align-self: center;
+}

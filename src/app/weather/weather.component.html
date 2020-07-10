@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="header-title">{{tittle}}</div>
+    <div class="alerts">
+        <div *ngIf="((currentWeather$ | async)?.temperature > MAX_C_TEMP && stateUnit === CELCIUS_UNIT )||( (currentWeather$ | async)?.temperature > MAX_F_TEMP && stateUnit === FARENHEIT_UNIT)" class="hot-alert">
+            <p>Temperature is too hot </p>
+        </div>
+        <div *ngIf="(currentWeather$ | async)?.temperature < MIN_C_TEMP && stateUnit == CELCIUS_UNIT || (currentWeather$ | async)?.temperature < MIN_F_TEMP && stateUnit == FARENHEIT_UNIT" class="cold-alert">
+            <p>Temperature is too cold</p>
+        </div>
+        <div class="btn-grp">
+            <div>
+                <button mat-button color="primary" (click)="changeTemperatureUnit('C')">&#176;{{CELCIUS_UNIT}}</button>
+            </div>
+            <div>
+                <button mat-button color="primary" (click)="changeTemperatureUnit('F')">&#176;{{FARENHEIT_UNIT}}</button>
+            </div>
+        </div>
+    </div>
+    <div class="currently">
+        <h2> Temperature: {{(currentWeather$ | async)?.temperature | number : '2.0-0'}} &#176;{{stateUnit}}</h2>
+        <h4> Summary: {{(currentWeather$ | async)?.summary}}</h4>
+        <h4> Humidity: {{(currentWeather$ | async)?.humidity}}</h4>
+    </div>
+
+    <div class="week-display">
+        <div class="weekly">
+            <span><h2>{{tempForTheWeek}}</h2></span>
+            <em>{{predictedHourdly}}</em>
+            <div id="day-list">
+                <span class="day" (click)="filterDayHourlyWeather(weather?.date)" *ngFor="let weather  of dailyWeather$ | async">
+          <h3> {{weather?.date}} </h3>
+
+          <div> High: {{weather?.temperatureMax | number: '2.0-0'}} &#176;{{stateUnit}}</div>
+          <div class="demo-2">Low: {{weather?.temperatureMin | number: '2.0-0'}} &#176;{{stateUnit}} </div>
+
+        </span>
+            </div>
+        </div>
+    </div>
+    <div class="hourly">
+        <h2>{{tempInHours}}</h2>
+        <div id="hr-list">
+            <span class="hour" *ngFor="let dayHourlyWeather  of dayHourlyWeather">
+        <h3> {{dayHourlyWeather?.time}} </h3>
+        <p>
+          <span> {{dayHourlyWeather?.temperature | number: '2.0-0'}} &#176;{{stateUnit}} </span>
+            </p>
+            </span>
+            <span id="no-weather" *ngIf="dayHourlyWeather?.length <= 0">
+        <em>{{noHourlyWeather}}</em>
+
+      </span>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,17 @@
+header,
+footer,
+#content {
+    position: absolute;
+    right: 0;
+    left: 0
+}
+
+header {
+    height: 100px;
+    top: 0;
+}
+
+#content {
+    top: 0;
+    bottom: 100px;
+}
